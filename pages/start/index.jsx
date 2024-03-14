@@ -1,13 +1,94 @@
-import { Button, Pressable, StyleSheet, Text, View } from 'react-native'
+import { Button, Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import LinearGradient from 'react-native-linear-gradient';
 import GradientButton from '../../components/buttons/GradientButton';
 import { screens } from '../../screens.js';
 
+
+
 const Start = (props) => {
+    const screenHeight = Dimensions.get('window').height;
+
+    const imageHeight = screenHeight * 0.65;
+    const imageWidth = screenHeight * 0.46;
+
+    const sprinklesArr = [
+        {
+            opacity: 1,
+            top: '20%',
+            right: '50%'
+        },
+        {
+            opacity: .5,
+            top: '10%',
+            right: '50%'
+        },
+        {
+            opacity: .5,
+            top: '30%',
+            right: '50%'
+        },
+        {
+            opacity: .6,
+            top: '20%',
+            right: '70%'
+        },
+        {
+            opacity: .4,
+            top: '20%',
+            right: '50%'
+        },
+        {
+            opacity: .21,
+            top: '5%',
+            right: '60%',
+        },
+        {
+            opacity: .5,
+            top: '15%',
+            right: '30%'
+        },
+        {
+            opacity: .5,
+            top: '40%',
+            right: '60%'
+        },
+        {
+            opacity: .3,
+            top: '30%',
+            right: '10%'
+        },
+        {
+            opacity: .4,
+            top: '10%',
+            right: '30%'
+        },
+    ]
+
+
     return (
         <View style={[styles.background, { position: 'relative' }]}>
-            
+
+            {sprinklesArr.map((sprinkle, index) => (
+                <View
+                    key={index}
+                    style={{
+                        position: 'absolute',
+                        backgroundColor: `rgba(212, 251, 84, ${sprinkle.opacity})`,
+                        width: 3,
+                        height: 3,
+                        borderRadius: 1.5,
+                        top: sprinkle.top,
+                        right: sprinkle.right
+                    }}
+                />
+            ))}
+
+
+            <Image
+                source={require('../../images/ray.png')}
+                style={{ position: 'absolute', top: 0, right: 0, height: imageHeight, width: imageWidth }}
+            />
+
 
             <View style={{ flex: 1, justifyContent: 'space-between' }}>
                 <View style={{ flex: 1, top: '30%' }}>

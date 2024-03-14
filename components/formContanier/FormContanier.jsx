@@ -1,13 +1,21 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React, { ReactNode } from 'react';
+import LinearGradient from 'react-native-linear-gradient';
 
-const FormContainer = ({ children, heading='smaple heading' }) => {
+const FormContainer = ({ children, heading = 'smaple heading' }) => {
     return (
         <View style={styles.mainContanier}>
-            <Text style={styles.heading}>{heading}</Text>
-            <View style={styles.container}>
-                {children}
-            </View>
+                <Text style={styles.heading}>{heading}</Text>
+            <LinearGradient
+                colors={['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, .4)']}
+                start={{ x: 0, y: .4 }}
+                end={{ x: 1, y: 0 }}
+                style={styles.container}
+            >
+                {/* <View style={styles.container}>  */}
+                    {children}
+                {/* </View> */}
+            </LinearGradient>
         </View>
     );
 }
@@ -19,7 +27,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'flex-start',
         justifyContent: 'center',
-        
+
     },
     container: {
         width: 320,
@@ -30,8 +38,8 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginVertical: 10,
         backgroundColor: 'rgba(255, 255, 255, 0.07)',
-        margin:20,
-        
+        margin: 20,
+
     },
     heading: {
         fontFamily: 'GT Super Txt Trial',
@@ -41,7 +49,7 @@ const styles = StyleSheet.create({
         letterSpacing: 0,
         textAlign: 'left',
         color: 'white',
-        marginLeft:20,
-        marginBottom:30,
+        marginLeft: 20,
+        marginBottom: 30,
     }
 });

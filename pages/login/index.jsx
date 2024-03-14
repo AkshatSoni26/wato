@@ -13,7 +13,7 @@ const Login = (props) => {
     <View style={commanStyles.background}>
       <View style={{ flex: 1, overflow: 'hidden' }}>
         <FormContainer heading='Please sign-in to your account'>
-        <View style={styles.gradientContainer}>
+          <View style={styles.gradientContainer}>
           </View>
           <TextInput style={styles.input} placeholder='Email' placeholderTextColor={'rgba(255, 255, 255, 0.4)'} />
           <PasswordInput />
